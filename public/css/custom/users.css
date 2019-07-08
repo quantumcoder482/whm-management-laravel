@@ -1,0 +1,11 @@
+th, td{
+    vertical-align: middle !important;
+}
+td .btn-badge{
+    padding: 4px !important;
+    min-width: 60px;
+}
+.permission-active{
+    box-shadow: 0 0 1px 2px #01014e;
+    z-index: 3;
+}

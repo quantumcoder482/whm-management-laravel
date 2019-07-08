@@ -1,0 +1,30 @@
+.table{
+    /* overflow-x: auto;
+    display:block !important; */
+}
+.table::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+  }
+.table::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+.table::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+.table::-webkit-scrollbar-thumb:hover {
+    background: #666; 
+  }
+td .btn-badge{
+  padding: 3px 5px !important;
+  min-width: 50px;
+}
+.table thead tr th{
+  font-size: 1em !important;
+  font-weight: 600;
+}
+.permission-active{
+    box-shadow: 0 0 1px 2px #01014e !important;
+    z-index: 3 !important;
+}

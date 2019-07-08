@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the users
-     *
+     * 
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
     public function index(User $model)
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        // $users = User::where('role', '<', 2)->get();
+        return view('users.index', ['users' => $model->where('role', '<', 2)->paginate(15)]);
     }
 
     /**
@@ -32,15 +35,24 @@ class UserController extends Controller
     /**
      * Store a newly created user in storage
      *
-     * @param  \App\Http\Requests\UserRequest  $request
-     * @param  \App\User  $model
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  \Illuminate\Http\UserRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(UserRequest $request, User $model)
     {
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        return redirect()->route('user.index');
+    }
 
-        return redirect()->route('user.index')->withStatus(__('User successfully created.'));
+    /**
+     * Display the specified user.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -61,14 +73,29 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User  $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
-                ->except([$request->get('password') ? '' : 'password']
-        ));
+                ->except(
+                    [$request->get('password') ? '' : 'password']
+                )
+        );
 
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $id = $request->input("id");
+        $status = $request->input("status");
+
+        $data = User::where('id', $id)->first();
+        $data->status = !$status;
+        $result = $data->save();
+
+        return response()->json(['result'=> $result]);
+
     }
 
     /**
@@ -77,7 +104,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(User  $user)
+    public function destroy(User $user)
     {
         $user->delete();
 

@@ -1,0 +1,10 @@
+form.view-form {
+    /* margin: 50px auto; */
+    width: 100%;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+form label span {
+    margin-left: 20px;
+}

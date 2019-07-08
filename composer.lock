@@ -467,16 +467,16 @@
         },
         {
             "name": "laravel-frontend-presets/material-dashboard",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-frontend-presets/material-dashboard.git",
-                "reference": "1cf062554883c65dcee0873e1b4950c9c33bb85f"
+                "reference": "28dd3137f91e2c328bd3e5f95f9417bfad014d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-frontend-presets/material-dashboard/zipball/1cf062554883c65dcee0873e1b4950c9c33bb85f",
-                "reference": "1cf062554883c65dcee0873e1b4950c9c33bb85f",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/material-dashboard/zipball/28dd3137f91e2c328bd3e5f95f9417bfad014d02",
+                "reference": "28dd3137f91e2c328bd3e5f95f9417bfad014d02",
                 "shasum": ""
             },
             "require": {
@@ -506,20 +506,20 @@
                 "material",
                 "preset"
             ],
-            "time": "2019-04-18T15:16:38+00:00"
+            "time": "2019-07-01T10:22:33+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.26",
+            "version": "v5.8.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31"
+                "reference": "f1dccffb96f614895393e27e4667105a05407af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1d8ec9afdedc79314c18715056b8143d7e1fac31",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f1dccffb96f614895393e27e4667105a05407af5",
+                "reference": "f1dccffb96f614895393e27e4667105a05407af5",
                 "shasum": ""
             },
             "require": {
@@ -653,7 +653,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-06-25T16:20:51+00:00"
+            "time": "2019-07-02T13:43:47+00:00"
         },
         {
             "name": "laravel/tinker",

@@ -1,4 +1,6 @@
 <?php
+use Carbon\Traits\Rounding;
+use App\Http\Controllers\ViewSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,13 +14,50 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
+
+Route::get('/suspended', function () {
+	return view('suspended');
+});
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
+Route::get('/get_site_info', 'OrganizationListController@get_site_info');
+
 Route::group(['middleware' => 'auth'], function () {
+
+	/**
+	 * Direct Access page
+	 */
+	Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+
+	Route::any('/new-organization', 'OrganizationController@new')->name('neworganization');
+
+
+	/**
+	 *  Data processing 
+	 */
+
+	Route::get('/organizationlist', 'OrganizationListController@index')->name('organizationlist');
+	
+	Route::post('/delete-organization', 'OrganizationController@delete')->name('delete_org');
+	Route::post('/org-suspend', 'OrganizationController@suspend')->name('org_suspend');
+	Route::post('/add-organization', 'OrganizationController@add')->name('add_org');
+
+	Route::get('/view-setting', 'ViewSettingController@index')->name('view_setting');
+	Route::post('/update-setting', 'ViewSettingController@update')->name('update_setting');
+
+
+
+
+	/**
+	 * Theme templates 
+	 */
+
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
@@ -50,8 +89,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
+	Route::post('update-status', 'UserController@updateStatus')->name('update_status');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
-

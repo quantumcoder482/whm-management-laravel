@@ -1,0 +1,48 @@
+.profile-pic {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+}
+.small-12.medium-2.large-2.columns {
+    width: 130px;
+    height: 130px;
+    margin: auto;    
+    position: relative;
+}
+.file-upload {
+    display: none !important;
+}
+.circle {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 8px solid rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 0px;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.p-image {
+  position: absolute;
+  top: 100px;
+  right: 15px;
+  color: #666666;
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.p-image:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-button {
+  font-size: 1.2em;
+}
+.upload-button:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  color: #999;
+}
+.password-view{
+    font-size: 19px;
+    vertical-align: middle;
+}

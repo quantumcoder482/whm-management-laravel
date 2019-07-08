@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
+    <title>{{ __('InfomatsAu') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -16,7 +16,18 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
-    </head>
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/iCheck/css/all.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/switchery/css/switchery.css') }}" />
+
+    <!-- New !-->
+    <link rel="stylesheet" href="{{asset('js/custom/spinner-loader/jajaxloader.css')}}"/>
+    <link rel="stylesheet" href="{{asset('js/custom/spinner-loader/tear_ball.css')}}"/>
+
+   
+    @stack('styles')
+
+  </head>
     <body class="{{ $class ?? '' }}">
         @auth()
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -69,15 +80,16 @@
                   <img src="{{ asset('material') }}/img/sidebar-4.jpg" alt="">
                 </a>
               </li>
+              <!--
               <li class="button-container">
                 <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
               </li>
-              <!-- <li class="header-title">Want more components?</li>
+               <li class="header-title">Want more components?</li>
                   <li class="button-container">
                       <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                         Get the pro version
                       </a>
-                  </li> -->
+                  </li> 
               <li class="button-container">
                 <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
                   View Documentation
@@ -86,6 +98,7 @@
               <li class="button-container github-star">
                 <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
               </li>
+              
               <li class="header-title">Thank you for 95 shares!</li>
               <li class="button-container text-center">
                 <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
@@ -93,6 +106,10 @@
                 <br>
                 <br>
               </li>
+              -->
+              <br>
+              <br>
+              <br>
             </ul>
           </div>
         </div>
@@ -129,8 +146,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
         <!-- Library for adding dinamically elements -->
         <script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script>
-        <!--  Google Maps Plugin    -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>
         <!-- Chartist JS -->
         <script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script>
         <!--  Notifications Plugin    -->
@@ -140,6 +155,18 @@
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
         <script src="{{ asset('material') }}/demo/demo.js"></script>
         <script src="{{ asset('material') }}/js/settings.js"></script>
-        @stack('js')
+
+        <!-- Custom Script !-->
+        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="{{ asset('vendor/blockUI/blockui.js') }}"></script>
+        <script src="{{ asset('vendor/iCheck/js/icheck.js') }}"></script>
+        <script src="{{ asset('vendor/switchery/js/switchery.js') }}"></script>
+
+        <!-- New  !-->
+        <script src="{{asset('js/custom/spinner-loader/jajaxloader.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js/custom/spinner-loader/tear_ball.js')}}" type="text/javascript"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        @stack('scripts')
     </body>
 </html>

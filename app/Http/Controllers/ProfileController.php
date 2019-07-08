@@ -18,7 +18,7 @@ class ProfileController extends Controller
         return view('profile.edit');
     }
 
-    /**
+    /**                              
      * Update the profile
      *
      * @param  \App\Http\Requests\ProfileRequest  $request
