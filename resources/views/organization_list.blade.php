@@ -64,10 +64,10 @@
                             @if (Auth::user()->role == 2)
                             <td class="text-center" style="width: 180px;">
                                 <div class="btn-group">
-                                    <input type="hidden" value="{{$org_list['subdomain']}}" name="domain"/>
-                                    <button class="btn btn-primary btn-sm btn-badge{{$org_list['status'] == 1 ? ' permission-active' : ''}}" permission="1">UNBLOCK</button>
-                                    <button class="btn btn-warning btn-sm btn-badge{{$org_list['status'] == 0 ? ' permission-active' : ''}}" permission="0">BLOCK</button>
-                                    <button button="button" class="btn btn-danger btn-sm btn-badge" permission="-1">DELETE</button>
+                                    <input type="hidden" value="{{$org_list['subdomain']}}" name="domain" id="domain"/>
+                                    <button class="btn btn-primary btn-sm btn-badge{{$org_list['status'] == 1 ? ' permission-active' : ''}} action_button" permission="1" onclick="changeStatus(1, '{{ $org_list['subdomain'] }}');">UNBLOCK</button>
+                                    <button class="btn btn-warning btn-sm btn-badge{{$org_list['status'] == 0 ? ' permission-active' : ''}} action_button" permission="0" onclick="changeStatus(0, '{{ $org_list['subdomain'] }}');">BLOCK</button>
+                                    <button button="button" class="btn btn-danger btn-sm btn-badge action_button" permission="-1" onclick="changeStatus(-1, '{{ $org_list['subdomain'] }}');">DELETE</button>
                                 </div>
                             </td>
                             @endif
@@ -252,7 +252,8 @@
   </div>
 
   @push('styles')
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    {{-- <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/> --}}
+    <link href="https://nightly.datatables.net/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
   @endpush

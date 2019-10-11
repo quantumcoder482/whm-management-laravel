@@ -71,52 +71,39 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="created_by" class="bmd-label-floating">{{ __('Created By') }}</label>
-                        <input type="text" class="form-control" name="created_by" id="created_by" required/>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
                         <label for="owner_name" class="bmd-label-floating">{{ __('Owner Name') }}</label>
                         <input type="text" class="form-control" name="owner_name" id="owner_name" required/>
                       </div>
                     </div>    
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="sale_type" class="bmd-label-floating">{{ __('Sale Type') }}</label>
-                        <input type="text" class="form-control" name="sale_type" id="sale_type" required/>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
+                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="email_address" class="bmd-label-floating">{{ __('Email Address') }}</label>
                         <input type="email" class="form-control" name="email_address" id="email_address" required/>
                       </div>
                     </div>    
                   </div>
-                  
-                  <!--
                   <div class="row">
-                    <div class="col-md-12">
-                      <div class="radio">
-                        <label>
-                        <input type="radio" name="create_type" id="cpanel_db" value="cpanel_db" checked >
-                          Create Subdomain and Database
-                        </label>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="created_by">{{ __('Created By')}}</label>
+                        <select class="form-control" name="created_by" id="created_by" required>
+                          @foreach($users as $user)
+                            <option value="{{ $user['name'] }}" style="font-size:1.3em">{{ $user['name'] }}</option>
+                          @endforeach
+                        </select>
                       </div>
                     </div>
-                    <div class="col-md-12">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="create_type" id="only_db" value="only_db">
-                            Create only Database
-                        </label>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="sale_type">{{ __('Sale Type') }}</label>
+                        <select class="form-control" name="sale_type" id="sale_type" required>
+                          <option value="demo" style="font-size:1.3em">demo</option>
+                          <option value="monthly" style="font-size:1.3em">monthly</option>
+                          <option value="unlimited" style="font-size:1.3em">unlimited</option>
+                        </select>
                       </div>
                     </div>
                   </div>
-                  !-->
                   <div class="form-group text-right">
                       <button type="button" class="btn btn-primary create_org">Create Now</button>
                   </div>

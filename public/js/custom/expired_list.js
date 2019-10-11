@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 function changeStatus(permission, subdomain){
     
+    
     $("#org_lists_table").block({
         message: null
     });
@@ -26,7 +27,7 @@ function changeStatus(permission, subdomain){
     });
 
     if (permission == 1 || permission == 0) {
-        var _this = $(this);
+        // var _this = $(this);
         var token = $('meta[name="csrf-token"]').attr("content");
 
         $.post("org-suspend", {
@@ -44,7 +45,11 @@ function changeStatus(permission, subdomain){
                     } else {
                         toastr.error(res.error, "Warning")
                     }
-                   
+                    
+                    // _this
+                    //     .siblings("button.permission-active")
+                    //     .removeClass("permission-active");
+                    // _this.addClass("permission-active");
                 }, 1500);
             },
             err => {}
@@ -78,4 +83,41 @@ function changeStatus(permission, subdomain){
             }
         );
     }
+}
+
+
+function changeLimited(id){
+
+     $("#org_lists_table").block({
+         message: null
+     });
+
+     $("body").ajaxloader({
+         cssClass: "lukehaas_tear_ball",
+         content: ""
+     });
+    
+
+     var token = $('meta[name="csrf-token"]').attr("content");
+
+     $.post("org-unlimited", {
+         id: id,
+         _token: token
+     }).then(
+         res => {
+             setTimeout(function () {
+                 $("body").ajaxloader("stop");
+                 $("#org_lists_table").unblock();
+                 if (res.success) {
+                     toastr.success(res.success, "Success");
+                     location.reload();
+                 } else {
+                     toastr.error(res.error, "Warning")
+                 }
+
+             }, 1500);
+         },
+         err => {}
+     );
+     
 }

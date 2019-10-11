@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Organizations;
+use App\User;
 
 class OrganizationController extends Controller
 {
@@ -166,8 +167,6 @@ class OrganizationController extends Controller
                 }
             }   
         }
-
-        
         
         
     }
@@ -224,7 +223,10 @@ class OrganizationController extends Controller
         if( Auth::user()->role < 2){
             return redirect()->route('home');
         }
-        return view('new_organization');
+
+        $users = User::all();
+        
+        return view('new_organization',['users' => $users]);
     }
 
     public function suspend(Request $request)
@@ -260,6 +262,21 @@ class OrganizationController extends Controller
             return response()->json(['error' => 'Somethin happend error while change status']);
         }
 
+    }
+
+    public function unLimited(Request $request){
+        $id = $request->input('id');
+        if($id != ''){
+            $result = Organizations::where('id', $id)->update(['sale_type' => 'unlimited']);
+            if(!$result){
+                return response()->json(['error' => 'Something happend error while change sale type']);
+            }else{
+                return response()->json(['success'=> 'Sale type changed successfully']);
+            }
+        }else {
+            return response()->json(['error' => 'Not Selected SubDomain']);
+        }
+        
     }
 
 

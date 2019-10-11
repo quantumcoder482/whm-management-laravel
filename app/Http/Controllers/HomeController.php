@@ -28,11 +28,8 @@ class HomeController extends Controller
     {
         $users = User::all()->count();
         $organizations = Organizations::all()->count();
-        // $columnList = collect(ViewSettings::first())->except(['id', 'created_at', 'updated_at'])->toArray();
-        // $columns = 0;
-        // foreach ($columnList as  $value) {
-        //     $columns += $value;
-        // }
-        return view('dashboard');
+        $columns = ViewSettings::where('value', '1')->count();
+        return view('dashboard', ['users' => $users, 'organizations' => $organizations, 'columns' => $columns]);
+        
     }
 }

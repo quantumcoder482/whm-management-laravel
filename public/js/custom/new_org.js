@@ -8,11 +8,12 @@ $(document).ready(function(){
         var superAdminPassword = $("input[name='super_password']").val();
         var adminUsername = $("input[name='admin_username']").val();
         var adminPassword = $("input[name='admin_password']").val();
-        var created_by = $("input[name='created_by']").val();
         var owner_name = $("input[name='owner_name']").val();
-        var sale_type = $("input[name='sale_type']").val();
         var email_address = $("input[name='email_address']").val();
 
+        var created_by = $("#created_by").val();
+        var sale_type = $("#sale_type").val();
+        
 
         if (orgName == '') {
             toastr.error('Please enter the Organization Name', 'Warning');
@@ -70,8 +71,10 @@ $(document).ready(function(){
                     $('#neworg-form').unblock();
                     if (res.data.error) {
                         toastr.error(res.data.error, 'Warning');
+                        location.reload();
                     } else if (res.data.success){
                         toastr.success(res.data.success, 'Success'); 
+                        location.reload();
                     }
                 }, 2000)
             }, err => {
@@ -79,6 +82,7 @@ $(document).ready(function(){
                 setTimeout(function(){
                     $("body").ajaxloader("stop");
                     $('#neworg-form').unblock();
+                    location.reload();
                 }, 2000)
             });
         }

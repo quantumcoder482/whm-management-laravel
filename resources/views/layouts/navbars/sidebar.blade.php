@@ -34,6 +34,12 @@
       </li>
 
       @if (Auth::user()->role == 2)
+      <li class="nav-item {{ $activePage == 'expired-list' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('expiredlist') }}">
+          <i class="material-icons">view_list</i>
+            <p>{{ __('Expired SubDomain List') }}</p>
+        </a>
+      </li>
       <li class="nav-item {{ ($activePage == 'view-setting' || $activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="true">
           <i class="material-icons">settings</i>

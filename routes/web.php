@@ -43,9 +43,11 @@ Route::group(['middleware' => 'auth'], function () {
 	 */
 
 	Route::get('/organizationlist', 'OrganizationListController@index')->name('organizationlist');
-	
+	Route::get('/expiredlist', 'OrganizationListController@expired')->name('expiredlist');
+
 	Route::post('/delete-organization', 'OrganizationController@delete')->name('delete_org');
 	Route::post('/org-suspend', 'OrganizationController@suspend')->name('org_suspend');
+	Route::post('/org-unlimited', 'OrganizationController@unLimited')->name('org_unlimited');
 	Route::post('/add-organization', 'OrganizationController@add')->name('add_org');
 
 	Route::get('/view-setting', 'ViewSettingController@index')->name('view_setting');
