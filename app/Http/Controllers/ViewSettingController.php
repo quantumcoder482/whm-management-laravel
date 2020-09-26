@@ -24,46 +24,46 @@ class ViewSettingController extends Controller
             switch ($d['setting']) {
                 case 'org_name':
                     $captions[$d['setting']] = "View Organization Name";
-                    break; 
+                    break;
                 case 'domain':
                     $captions[$d['setting']] = "View Domain Name";
-                    break; 
+                    break;
                 case 'subdomain':
                     $captions[$d['setting']] = "View SubDomain Name";
-                    break; 
+                    break;
                 case 'super_user':
                     $captions[$d['setting']] = "View SuperUser Name";
-                    break; 
+                    break;
                 case 'super_password':
                     $captions[$d['setting']] = "View SuperUser Password";
-                    break; 
+                    break;
                 case 'admin_user':
                     $captions[$d['setting']] = "View AdminUser Name";
-                    break; 
+                    break;
                 case 'admin_password':
                     $captions[$d['setting']] = "View Admin Password";
-                    break; 
+                    break;
                 case 'db_name':
                     $captions[$d['setting']] = "View Database Name";
-                    break; 
+                    break;
                 case 'db_user':
                     $captions[$d['setting']] = "View Database User Name";
-                    break; 
+                    break;
                 case 'db_password':
                     $captions[$d['setting']] = "View Database Password";
-                    break; 
+                    break;
                 case 'created_by':
                     $captions[$d['setting']] = "View Created by";
-                    break; 
+                    break;
                 case 'owner_name':
                     $captions[$d['setting']] = "View Owner Name";
-                    break; 
+                    break;
                 case 'sale_type':
                     $captions[$d['setting']] = "View Sale Type";
-                    break; 
+                    break;
                 case 'email':
                     $captions[$d['setting']] = "View Email Address";
-                    break; 
+                    break;
                 case 'created_at':
                     $captions[$d['setting']] = "View Created Date";
                     break;

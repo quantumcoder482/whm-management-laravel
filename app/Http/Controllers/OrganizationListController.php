@@ -18,16 +18,16 @@ class OrganizationListController extends Controller
         foreach($show as $key=>$value){
             $column[$value['setting']] = $value['value'];
         }
-        
+
         $data = Organizations::all();
         $list_data = [];
         foreach($data as $d){
             if($d->sale_type == 'demo' && $this->dateDifferenceNow($d->created_at) <= 10){
-                array_push($list_data, $d); 
+                array_push($list_data, $d);
             }elseif($d->sale_type == 'monthly' && $this->dateDifferenceNow($d->created_at) <= 30){
-                array_push($list_data, $d); 
+                array_push($list_data, $d);
             }elseif($d->sale_type != 'demo' && $d->sale_type != 'monthly'){
-                array_push($list_data, $d); 
+                array_push($list_data, $d);
             }
         }
 
@@ -55,7 +55,7 @@ class OrganizationListController extends Controller
 
         return view('expired_list', ['Organizations' => $list_data, 'expired_dates' => $expired_date_list]);
     }
-    
+
     public function get_site_info(Request $request)
     {
         $subdomain = $request->input('subdomain');

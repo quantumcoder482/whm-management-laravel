@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the users
-     * 
+     *
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */

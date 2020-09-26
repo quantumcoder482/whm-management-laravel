@@ -34,7 +34,7 @@
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">input</i> 
+                <i class="material-icons">input</i>
                 <a href="{{ route('neworganization') }}">Details...</a>
               </div>
             </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">input</i> 
+                <i class="material-icons">input</i>
                 <a href="{{ route('user.index') }}">Details...</a>
               </div>
             </div>
@@ -68,14 +68,14 @@
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">input</i> 
+                <i class="material-icons">input</i>
                 <a href="{{ route('view_setting') }}">Details...</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+
     </div>
   </div>
 @endsection
